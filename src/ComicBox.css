@@ -4,4 +4,26 @@
     border: 1px solid black;
     width: 100%;
     height: 26rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.ComicBoxImage {
+    width: 75%;
+}
+
+.ComicBoxButton {
+    border: 3px solid black;
+    background-color:lightgray;
+    appearance: none;
+    font-size: 1.5rem;
+    overflow: hidden;
+    width: 150px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ComicBoxTitle {
+    text-align: center;
 }
