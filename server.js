@@ -7,10 +7,7 @@ const server = express();
 const port = process.env.PORT || 7042;
 
 server.use(cors());
-
-server.get('/', (request, response) => {
-    response.send('wfelsl!');
-});
+server.use(express.static('build'));
 
 server.get('/comic/:number', (request, response) => {
     // console.log(request.params);
