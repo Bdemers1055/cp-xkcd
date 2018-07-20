@@ -9,16 +9,17 @@ server.get('/', (request, response) => {
     response.send('wfelsl!');
 });
 
-server.get('/comic', (request, response) => {
-    const url = 'https://xkcd.com/614/info.0.json';
+server.get('/comic/:number', (request, response) => {
+    // console.log(request.params);
+    const { number } = request.params;
+    const url = `https://xkcd.com/${number}/info.0.json`;
     axios.get(url)
     .then((comicResponse) => {
         response.json(comicResponse.data);
     })
-    .catch((err) => {
-        response.json({
+    .catch(() => {
+        response.status(500).json({
             msg: 'Something wrong',
-            // error: err,
         });
     });
 });
