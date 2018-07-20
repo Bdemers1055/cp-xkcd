@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const server = express();
 
-const port = 7042;
+const port = process.env.PORT || 7042;
 
 server.get('/', (request, response) => {
     response.send('wfelsl!');
