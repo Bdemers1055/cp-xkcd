@@ -18,7 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "server:start": "nodemon server.js"
+    "server:start": "nodemon server.js",
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
