@@ -6,14 +6,15 @@ class ComicBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        number: 0,
-        comic: {},
-        success: false,
-        error: null,
+      number: 1,
+      comic: {},
+      success: false,
+      error: null,
     };
   }
 componentDidMount(){
-    const url = 'https://jsonplaceholder.typicode.com/users/1'
+    const { number } = this.state;
+  const url = `http://localhost:7042/comic/${number}`;
     axios.get(url).then((response) => {
         this.setState({
             comic: response.data,
@@ -27,7 +28,7 @@ componentDidMount(){
   });
 }
 render(){
-    const { success, error } = this.state;
+    const { success, error, comic } = this.state;
     if(error) {
         return(
             <p>oops,try again</p>
@@ -39,7 +40,12 @@ render(){
         );
     }
     return(
-        <div className="ComicBoxContainer">comics</div>
+        <div className="ComicBoxContainer">
+        <h1>
+            {comic.safe_title}
+        </h1>
+        <img src={comic.img} alt={comic.alt} />
+        </div>
     )
 };
 }
